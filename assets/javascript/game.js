@@ -2,17 +2,18 @@ $(document).ready(function () {
     console.log("ready!");
 
     var randomNumber = Math.floor(Math.random() * 120) + 19;
+    var numberExtractedFromJewel = 0;
     console.log(randomNumber);
 
-    $("#numtoMatch").append(randomNumber);
+    $("#numtoMatch").text(randomNumber);
     console.log(numtoMatch);
 
     // setting up random # to jewel
-    numberExtractedFromJewel = 0;
-    var one = Math.floor(Math.random() * 1) + 12;
-    var two = Math.floor(Math.random() * 1) + 12;
-    var three = Math.floor(Math.random() * 1) + 12;
-    var four = Math.floor(Math.random() * 1) + 12;
+    $('#numberExtractedFromJewel').text(0);
+    var one = Math.floor(Math.random() * 12) + 1;
+    var two = Math.floor(Math.random() * 12) + 1;
+    var three = Math.floor(Math.random() * 12) + 1;
+    var four = Math.floor(Math.random() * 12) + 1;
 
     var keepingScore = 0;
     var Wins = 0;
@@ -45,15 +46,17 @@ $(document).ready(function () {
         three = Math.floor(Math.random() * 1) + 12;
         four = Math.floor(Math.random() * 1) + 12;
         numberExtractedFromJewel = 0;
-        $("#numberExtractedFromJewel").append(numberExtractedFromJewel);
+        $("#numtoMatch").text(randomNumber);
+        $("#numberExtractedFromJewel").text(numberExtractedFromJewel);
+
     }
 
     //buttons for jewels
 
-    $('#numberOne').on('click', function () {
+    $('#one').on('click', function () {
         numberExtractedFromJewel += one;
         console.log("New numberExtractedFromJewel= " + numberExtractedFromJewel);
-        $('.numberExtractedFromJewel').html("<p>" + numberExtractedFromJewel + "</p>");
+        $('#numberExtractedFromJewel').text(numberExtractedFromJewel);
 
         if (numberExtractedFromJewel === randomNumber) {
             winning();
@@ -65,7 +68,7 @@ $(document).ready(function () {
     $('#two').on('click', function () {
         numberExtractedFromJewel += two;
         console.log("New numberExtractedFromJewel= " + numberExtractedFromJewel);
-        $('.numberExtractedFromJewel').html("<p>" + numberExtractedFromJewel + "</p>");
+        $('#numberExtractedFromJewel').html("<p>" + numberExtractedFromJewel + "</p>");
 
         if (numberExtractedFromJewel === randomNumber) {
             winning();
@@ -78,7 +81,7 @@ $(document).ready(function () {
     $('#three').on('click', function () {
         numberExtractedFromJewel += three;
         console.log("New numberExtractedFromJewel= " + numberExtractedFromJewel);
-        $('.numberExtractedFromJewel').html("<p>" + numberExtractedFromJewel + "</p>");
+        $('#numberExtractedFromJewel').html("<p>" + numberExtractedFromJewel + "</p>");
 
         if (numberExtractedFromJewel === randomNumber) {
             winning();
@@ -89,7 +92,7 @@ $(document).ready(function () {
     $('#four').on('click', function () {
         numberExtractedFromJewel += four;
         console.log("New numberExtractedFromJewel= " + numberExtractedFromJewel);
-        $('.numberExtractedFromJewel').html("<p>" + numberExtractedFromJewel + "</p>");
+        $('#numberExtractedFromJewel').html("<p>" + numberExtractedFromJewel + "</p>");
 
         if (numberExtractedFromJewel === randomNumber) {
             winning();
