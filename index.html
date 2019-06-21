@@ -1,59 +1,137 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en-us">
 
 <head>
-  <meta charset="utf-8">
-  <title>The Crystal Collector Game!</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+
+    <meta charset="UTF-8">
+    <title>Totally Trivial Trivia</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
+    <div class="gameContainer">
+        <div class="header">
+            <h1>Totally Trivial Trivia!</h1>
+        </div>
+        <div class="timer" style="text-align: center">
+            <p1>Time remaining: </p1>
+        </div>
 
-  <div class="theHeader">
-      <h4>Cyrtal Collector Game!</h4>
-  </div>
+        <button type="button" class="btn btn-danger" id="startGame">Start!</button>
+        <div class="buttonStart">
+        </div>
 
-  <div class="theInstructions">
-      <h2>Here's how you play the game</h2>
-      </br>
-      
-          <p>You will be given a random number at the start of the game.<span>"Number To Match"</span></p>
-          <p>There are four crystals below.</p>
-          <p>By clicking on a crystal, you will add a specific amount of points to your total score.</p>
-          <p>You win the game by matching your total score to the random number.</p>
-          <p>You lose the game if your total score goes above the random number.</p>
-          <p>The value of each crystal is hidden from you until you click on it.</p>
-          <p>Each time when the game starts, the game will change the values of each crystal.</p>
-      
-  </div>
-  <div class="numberToMatch">
-      <p>Number To Match:</p>
-      <span id="numtoMatch"></span>
+        <div class="form-group text-center" id="theQuestions">
+            <p>1. Who plays Ross in the show Friends?</p>
+            <form class="questions">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="correct">David Schwimmer</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                        value="incorrect">Matt LeBlanc</label>
 
-  </div>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                        value="incorrect">Matthew Perry</label>
+                </div>
 
-  <div class="keepingScore">
-      <h5>Wins: <span id="Wins"></span></h5>
-      
-      <h5>Losses: <span id="Losses"></span></h5>
-      
-  </div>
+            </form>
+            <p>2. Which was the reason Mulan went to war?</p>
+            <form class="questions">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="correct">Super annoying mother</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                        value="incorrect">Wanted a life change</label>
+
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                        value="incorrect">Sick father</label>
+                </div>
+            </form>
+
+            <p>3. Who was the little mermaid in love with?</p>
+            <form class="questions">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="correct">Justin Bieber</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                        value="incorrect">The milk man</label>
+
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                        value="incorrect">A semi attractive hu-man.</label>
+                </div>
+
+            </form>
+
+            <p>4. The Leo is a _____ sign?</p>
+            <form class="questions">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="correct">Water</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                        value="incorrect">Air</label>
+
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                        value="incorrect">Fire</label>
+                </div>
+
+            </form>
+
+            <p>5. How many day are there in February ?</p>
+            <form class="questions">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="correct">31</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                        value="incorrect">25</label>
+
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                        value="incorrect">28</label>
+                </div>
+
+            </form>
+        </div>
+        <button type="button" class="btn btn-danger" id="doneGame">Done!</button>
+        <div class="buttonDone">
+        </div>
 
 
-  <div class="theJewels">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/41BV0WNRHDL._SX425_.jpg" class=gemImage id="one" alt="Blue Gem">
-        <img src="https://cdn.pixabay.com/photo/2014/04/03/10/02/diamond-309694_960_720.png" class=gemImage id="two" alt="Green Gem">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/61gWXCrD4UL._SX425_.jpg" class=gemImage id="three" alt="Yellow Gem">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/41JJ1dfE3hL._SX425_.jpg" class=gemImage id="four" alt="Red Gem">
-  </div>
+        <div class="theResults" style="text-align:center">
+            <p class="finalResults" id="results">Your results:</p>
+            <p class="finalResults" id="answeredCorrectly">Correct Answers:</p>
+            <p class="finalResults" id="answeredIncorrectly"> Incorrect Answers:</p>
+            <p class="finalResults" id="unansweredQuestions"> Unanswered Questions:</p>
+        </div>
+    </div>
 
-  <div>
-      <p id="numberExtractedFromJewel">Trying to Match The Number Above:</p>
-  </div>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="assets/javascript/game.js"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="assets/javascript/game.js"></script>
 
 </body>
+
 </html>

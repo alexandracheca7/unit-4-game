@@ -1,78 +1,29 @@
-body{
-    background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/rF63UXPMWj3otndy6/videoblocks-abstract-stained-background-seamless-video-color-light-pastel-blue-mint-green_sizkqjzfyq_thumbnail-full01.png");
-}
-div{
-	background-color:antiquewhite;
-	margin: 10px;
-	width: 25%
+body {
+    background-image: url("https://images.employerschoicescreening.com/wp-content/uploads/Question-Mark-pile.png");
 }
 
-h1, h3{
-	font-weight: bold;
+.gameContainer {
+    width: 50%;
+    height: 500px;
+    margin-left: 25%;
+    background-color: goldenrod;
+    margin-top: 10%;
+}
+h1{
     text-align: center;
-    color:hotpink;
+    margin-top: 10%;
 }
 
-h1 {
-    padding-top: 17px;
-}
-.theHeader {
-    font-size: 17px;
-    background-color: orange;
-    height: 85px;
-}
-h5 {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;
-    color: green;
-    margin-top: 0px;
-}
-h4 {
-    margin-top: 1px;
-    color: green;
+.timer p1 {
     text-align: center;
-    font-style: bold;
-    font-size: 25px;
-}
-p {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;
-    color: green;
 }
 
-/* Specfic Elements*/
-.theJewels{
-	background-color: #e0e0eb;
-}
-.theInstructions{
-    width: 65%;
-    height: 55%;
-    padding-top: 20px;
-    padding-left: 15px;
-}
-/* Classes */
-.numberToMatch, .keepingScore{
-	float: left;
-	width: 30%;
-    height: 100px;
+#startGame {
+    margin-left: 320px;
+    margin-top: 40%;
 }
 
-.randomNumber {
-    background-color: aquamarine;
-}
-
-.numberExtractedFromJewel{
-	width: 20%;
-    height: 150px;
-   
-}
-.theJewels{
-    clear: both;
-    height: 100px;
-    width: 25%;
-}
-.gemImage{
-    height: 60px;
-	margin: 10px;
-   
+#doneGame {
+    margin-left: 320px;
+    margin-bottom: 40%;
 }

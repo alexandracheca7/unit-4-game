@@ -1,104 +1,81 @@
 $(document).ready(function () {
-    console.log("ready!");
+    // when the page is loaded first, the timer, questions and summary must be hidden.
 
-    var randomNumber = Math.floor(Math.random() * 120) + 19;
-    var numberExtractedFromJewel = 0;
-    console.log(randomNumber);
-
-    $("#numtoMatch").text(randomNumber);
-    console.log(numtoMatch);
-
-    // setting up random # to jewel
-    $('#numberExtractedFromJewel').text(0);
-    var one = Math.floor(Math.random() * 12) + 1;
-    var two = Math.floor(Math.random() * 12) + 1;
-    var three = Math.floor(Math.random() * 12) + 1;
-    var four = Math.floor(Math.random() * 12) + 1;
-
-    var keepingScore = 0;
-    var Wins = 0;
-    var Losses = 0;
+    $('.timer').hide();
+    $('#theQuestions').hide();
+    $('.theResults').hide();
+    $('#doneGame').hide();
 
 
-    $("#wins").html(Wins);
-    $("#losses").html(Losses);
+    var number = 20;
+    var intervalId;
+    var answeredCorrectly= 0;
+    var answeredIncorrectly= 0;
+    var unansweredQuestions= 0;
 
-    //now I gotta add the wins to the wins & losses to the losses
-    function winning() {
-        alert("You win!");
-        Wins++;
-        $('#Wins').html(Wins);
-        reset();
+
+
+    $(".timer").on("click".run);
+
+    function timer() {
+        intervalId = setInterval(decrement, 1000);
     }
 
-    function loser() {
-        alert("You lost");
-        Losses++;
-        $('#Losses').html(Losses);
-        reset();
+    timer ();
+
+    function decrement() {
+        number--;
+        $(".timer").html(" " + number + " " + "seconds");
+        if (number === 1) {
+            $(".timer").html(" " + number + " " + "second");
+        }
+        else if (number === 0) {
+            stop();
+            hide();
+            displaySummary();
+        }
+    }
+    decrement();
+
+    function stop() {
+        clearInterval(intervalId);
     }
 
-    function reset() {
 
-        randomNumber = Math.floor(Math.random() * 120) + 19;
-        one = Math.floor(Math.random() * 1) + 12;
-        two = Math.floor(Math.random() * 1) + 12
-        three = Math.floor(Math.random() * 1) + 12;
-        four = Math.floor(Math.random() * 1) + 12;
-        numberExtractedFromJewel = 0;
-        $("#numtoMatch").text(randomNumber);
-        $("#numberExtractedFromJewel").text(numberExtractedFromJewel);
-
+    function displaySummary(){
+        $('.theResults').show();
+        unansweredQuestions = (5-(answeredCorrectly+wrongCount));
+        $('#answeredCorrectly').html("Correct Answers:" + " " + answeredCorrectly); 
+        $('#answeredIncorrectly').html("Wrong Answers:" + " " + answeredIncorrectly); 
+        $('#unansweredQuestions').html("Unanswered:" + " " + unansweredQuestions); 
     }
 
-    //buttons for jewels
 
-    $('#one').on('click', function () {
-        numberExtractedFromJewel += one;
-        console.log("New numberExtractedFromJewel= " + numberExtractedFromJewel);
-        $('#numberExtractedFromJewel').text(numberExtractedFromJewel);
+    //buttons
+    $('#startGame').on('click', function () {
+        $('#startGame').hide();
+        $("#theQuestions").show();
+        $(".timer").show();
+        $("#doneGame").show();
 
-        if (numberExtractedFromJewel === randomNumber) {
-            winning();
-        } else if (numberExtractedFromJewel > randomNumber) {
-            loser();
-        }
-    })
+    });
 
-    $('#two').on('click', function () {
-        numberExtractedFromJewel += two;
-        console.log("New numberExtractedFromJewel= " + numberExtractedFromJewel);
-        $('#numberExtractedFromJewel').html("<p>" + numberExtractedFromJewel + "</p>");
 
-        if (numberExtractedFromJewel === randomNumber) {
-            winning();
-        } else if (numberExtractedFromJewel > randomNumber) {
-            loser();
-        }
+    $("#doneGame").on('click', function () {
+        $('#doneGame').hide();
+        $(".theResults").show();
+        $("#theQuestions").hide();
+        $(".timer").hide();
+    });
 
-    })
 
-    $('#three').on('click', function () {
-        numberExtractedFromJewel += three;
-        console.log("New numberExtractedFromJewel= " + numberExtractedFromJewel);
-        $('#numberExtractedFromJewel').html("<p>" + numberExtractedFromJewel + "</p>");
+    $('input[type=radio]').on ('change', function(){
+        answeredCorrectly = $('input[value=correct]:checked').length;
+        answeredIncorrectly = $('input[value=incorrect]:checked').length;
+        unansweredQuestions = (5-(answeredCorrectly+answeredIncorrectly));
+        });
 
-        if (numberExtractedFromJewel === randomNumber) {
-            winning();
-        } else if (numberExtractedFromJewel > randomNumber) {
-            loser();
-        }
-    })
-    $('#four').on('click', function () {
-        numberExtractedFromJewel += four;
-        console.log("New numberExtractedFromJewel= " + numberExtractedFromJewel);
-        $('#numberExtractedFromJewel').html("<p>" + numberExtractedFromJewel + "</p>");
 
-        if (numberExtractedFromJewel === randomNumber) {
-            winning();
-        } else if (numberExtractedFromJewel > randomNumber) {
-            loser();
-        }
-    })
 
 });
+
